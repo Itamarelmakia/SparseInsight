@@ -1,16 +1,9 @@
 # Feature Selection Benchmarking Hub
-
-[![DOI](https://img.shields.io/badge/DOI-10.2139%2Fssrn.5132451-blue)](https://doi.org/10.2139/ssrn.5132451)
-[![Coverage](https://img.shields.io/badge/Coverage-ComingSoon-lightgrey.svg)](#)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
 
-Feature selection (FS) is a key technique for reducing dimensionality in high-dimensional data. However, simply having many features does not guarantee a challenging or useful benchmark. This repository implements the framework proposed in the paper:
-
-> **Choosing the Right Dataset: Hardness Criteria for Feature Selection Benchmarking**  
-> Itamar Elmakias, Dan Vilenchik, July 2024  
-> [DOI: 10.2139/ssrn.5132451](https://doi.org/10.2139/ssrn.5132451)
+Feature selection (FS) is a key technique for reducing dimensionality in high-dimensional data. However, simply having many features does not guarantee a challenging or useful benchmark.
 
 We benchmark **27 FS algorithms** across **102 real-world datasets** (63 binary, 39 multi-class), categorizing each dataset as **Easy**, **Medium**, **Hard**, or **Fragile**. A novel **peeling procedure** is also included, which transforms easy datasets into genuinely hard ones while preserving ground truth—providing rigorous testbeds for FS algorithms.
 
@@ -26,7 +19,6 @@ This platform supports dynamic benchmarking: researchers can upload new datasets
 - 🔄 PowerBI interface (coming soon) for dynamic benchmark updates and visual insights
 
 ## Repository Structure
-
 
 ```
 .
@@ -54,6 +46,8 @@ This platform supports dynamic benchmarking: researchers can upload new datasets
 ```
 
 ## Installation
+**Note:** Due to size constraints (~1GB), all datasets are hosted on Google Drive. Please download them manually from the following link and place them in the `data/` directory:
+🔗 [Google Drive Dataset Folder](https://drive.google.com/drive/folders/1lnolsMSfOv3EQBcsrAwM2ATy8y5nwJYT?usp=sharing)
 
 Clone the repository and install the dependencies:
 
@@ -104,15 +98,6 @@ Open any notebook in `/notebooks/` to:
 
 If you use this repository or methodology in your research, please cite:
 
-\`\`\`bibtex
-@article{elmakias2025choosing,
-  title   = {Choosing the Right Dataset: Hardness Criteria for Feature Selection Benchmarking},
-  author  = {Itamar Elmakias and Dan Vilenchik},
-  journal = {SSRN},
-  year    = {2024},
-  doi     = {10.2139/ssrn.5132451}
-}
-\`\`\`
 
 ## Contribution
 
