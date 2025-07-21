@@ -1,42 +1,125 @@
-SparseInsight
-===============================
-Using Feature Selection to Mitigate Curse of Dimensionality and Enhance Data Relevance in High-Dimensional and Sparse Data
+# Feature Selection Benchmarking Hub
 
-SparseInsight is an open-source feature selection repository in Python developed by Data Scientists in High Dimention Sprase Lab at Ben-Gurion University.
-Our research seeks to answer two key subquestions: 
-  (1) Can feature selection reduce dimensions effectively in HD datasets?  
-  (2) is FS essential in real sparse and HD datasets? 
+[![DOI](https://img.shields.io/badge/DOI-10.2139%2Fssrn.5132451-blue)](https://doi.org/10.2139/ssrn.5132451)
+[![Coverage](https://img.shields.io/badge/Coverage-ComingSoon-lightgrey.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
 
-We explore these questions to shed light on the utility of FS in enhancing data analysis efficiency, model interpretability, and possibly mitigating the curse-of-dimensionality, if it indeed exists and relates to the p/n ratio. Our research analyzes 50 HD datasets from reputable sources spanning 1999-2021, with p/n ratios ranging from 1 to 262.  We established a GitHub pipeline with 11 FS algorithms, spanning 1972-2021. We systematically optimized FS across 50 HD datasets, conducting 30,000+ experiments with varied hyperparameters.
+## Overview
 
-## Installing scikit-feature
-### Prerequisites:
-Python 2.7 *and Python 3*
+Feature selection (FS) is a key technique for reducing dimensionality in high-dimensional data. However, simply having many features does not guarantee a challenging or useful benchmark. This repository implements the framework proposed in the paper:
 
-### Data Manipulation and Visualization:
-pandas
-pyarrow
-matplotlib
-numpy
-scipy
-collections
+> **Choosing the Right Dataset: Hardness Criteria for Feature Selection Benchmarking**  
+> Itamar Elmakias, Dan Vilenchik, July 2024  
+> [DOI: 10.2139/ssrn.5132451](https://doi.org/10.2139/ssrn.5132451)
 
-### Parallel Processing and Joblib:
-import
-joblib
-multiprocessing
+We benchmark **27 FS algorithms** across **102 real-world datasets** (63 binary, 39 multi-class), categorizing each dataset as **Easy**, **Medium**, **Hard**, or **Fragile**. A novel **peeling procedure** is also included, which transforms easy datasets into genuinely hard ones while preserving ground truth—providing rigorous testbeds for FS algorithms.
 
-### File Handling (Excel, Glob):
-glob
-openpyxl
-xlrd
-xlsxwriter
+This platform supports dynamic benchmarking: researchers can upload new datasets or FS algorithms and receive automated profiling results.
 
-### Machine Learning and Deep Learning:
-itertools
-tensorflow
-keras
-h5py
-math
+## Highlights
 
-* Other function can be find in 
+- ✅ A **unified complexity framework** for dataset categorization (Easy/Medium/Hard/Fragile)
+- 🧪 Benchmarks on **27 FS algorithms** from diverse paradigms: Filter, Wrapper, Embedded
+- 📊 Evaluation on **102 datasets** across domains like bioinformatics, text, imaging, etc.
+- 🧩 **Peeling procedure** to generate "Hard" datasets with retained ground truth
+- 📦 **Extensible**: add datasets or FS methods and automatically benchmark them
+- 🔄 PowerBI interface (coming soon) for dynamic benchmark updates and visual insights
+
+## Repository Structure
+
+\`\`\`
+├── data                    # All datasets, grouped by repository
+│   ├── UCI/
+│   ├── Kaggle/
+│   ├── OpenML/
+│   ├── Peeling dataset/
+│   └── ... (more sources)
+├── logs                   # Log files for experiment tracking
+├── notebooks              # Jupyter notebooks for analysis and visualization
+├── results                # Benchmark results
+│   ├── Convert Data 2 Hard/
+│   └── FS/
+├── src                    # Source code
+│   ├── Main_FS.py         # Main entry point for benchmarking
+│   ├── main_Include Convert Data 2 Hard.py
+│   ├── configs/
+│   │   └── config.py      # Configuration file (edit this!)
+│   ├── fs_algorithms/     # All 27 FS algorithms (some with submodules)
+│   ├── utilities.py       # Utilities for CV, logging, parallelism, etc.
+\`\`\`
+
+## Installation
+
+Clone the repository and install the dependencies:
+
+\`\`\`bash
+git clone https://github.com/yourusername/FeatureSelectionBenchmarkingHub.git
+cd FeatureSelectionBenchmarkingHub
+pip install -r requirements.txt
+\`\`\`
+
+Recommended: use a virtual environment. This project requires Python 3.7+.
+
+## Usage
+
+### Run Benchmark Pipeline
+
+\`\`\`bash
+python src/Main_FS.py --config src/configs/config.py
+\`\`\`
+
+This executes all configured FS algorithms across the datasets, using 5-fold CV and saving results in `/results/`.
+
+### Generate "Hard" Dataset via Peeling
+
+\`\`\`bash
+python src/main_Include\ Convert\ Data\ 2\ Hard.py --input data/UCI/example.csv --output data/Peeling\ dataset/example_hard.csv
+\`\`\`
+
+This will output:
+- A smaller, harder dataset
+- A known ground truth feature set
+- A report showing FS failure to recover the features—i.e., it’s a good benchmark
+
+### Add New FS Algorithm or Dataset
+
+- 📁 Place your algorithm in `src/fs_algorithms/`
+- 🧪 Update `config.py` to include it
+- 📂 Add your dataset under `data/<Source>/`
+- ✅ Re-run the pipeline — everything is automatic!
+
+### Explore Results (Optional)
+
+Open any notebook in `/notebooks/` to:
+- Visualize algorithm performance across dataset categories
+- Compare FS algorithms on a specific dataset
+- View the impact of peeling on performance
+
+## Citation
+
+If you use this repository or methodology in your research, please cite:
+
+\`\`\`bibtex
+@article{elmakias2025choosing,
+  title   = {Choosing the Right Dataset: Hardness Criteria for Feature Selection Benchmarking},
+  author  = {Itamar Elmakias and Dan Vilenchik},
+  journal = {SSRN},
+  year    = {2024},
+  doi     = {10.2139/ssrn.5132451}
+}
+\`\`\`
+
+## Contribution
+
+We welcome contributions!
+
+- 🧬 Add new datasets to `/data/`
+- 🧠 Implement new FS algorithms in `/src/fs_algorithms/`
+- 🛠 Improve code performance, documentation, or unit tests
+- 🗣 Report issues or suggest features
+
+Submit a pull request or open an issue. For major changes, please discuss via GitHub issues first.
+
+---
+
+This project is maintained by [Itamar Elmakias](https://github.com/ItamarEl) and [Dan Vilenchik]. Special thanks to the FS community for feedback and dataset contributions.
