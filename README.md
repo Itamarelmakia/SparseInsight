@@ -34,19 +34,7 @@ This platform supports dynamic benchmarking: researchers can upload new datasets
 │   ├── GEMS/
 │   ├── GitHub/
 │   ├── Haibasim/
-│   ├── Kaggle/
-│   ├── MCI/
-│   ├── NCBI/
-│   ├── NIH/
-│   ├── NIPS_2003/
-│   ├── OpenML/
-│   ├── Other/
-│   ├── Paperswithcode/
-│   ├── Peeling dataset/
-│   ├── UCI/
-│   ├── WCCI_2006/
-│   ├── Zenodo/
-│   └── scikit-feature/
+|   ├── ... (other repositories)
 ├── logs/                       # Logger folder
 ├── notebooks/                  # Jupyter notebooks
 ├── results/                    # Results per project
