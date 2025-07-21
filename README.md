@@ -27,25 +27,43 @@ This platform supports dynamic benchmarking: researchers can upload new datasets
 
 ## Repository Structure
 
-├── data                    # All datasets, grouped by repository
-│   ├── UCI/
+
+```
+.
+├── data/                        # All datasets, grouped by repository
+│   ├── GEMS/
+│   ├── GitHub/
+│   ├── Haibasim/
 │   ├── Kaggle/
+│   ├── MCI/
+│   ├── NCBI/
+│   ├── NIH/
+│   ├── NIPS_2003/
 │   ├── OpenML/
+│   ├── Other/
+│   ├── Paperswithcode/
 │   ├── Peeling dataset/
-│   └── ... (more sources)
-├── logs                   # Log files for experiment tracking
-├── notebooks              # Jupyter notebooks for analysis and visualization
-├── results                # Benchmark results
+│   ├── UCI/
+│   ├── WCCI_2006/
+│   ├── Zenodo/
+│   └── scikit-feature/
+├── logs/                       # Logger folder
+├── notebooks/                  # Jupyter notebooks
+├── results/                    # Results per project
 │   ├── Convert Data 2 Hard/
 │   └── FS/
-├── src                    # Source code
-│   ├── Main_FS.py         # Main entry point for benchmarking
+├── src/                        # Source code
+│   ├── Main_FS.py              # Main pipeline script
 │   ├── main_Include Convert Data 2 Hard.py
-│   ├── configs/
-│   │   └── config.py      # Configuration file (edit this!)
-│   ├── fs_algorithms/     # All 27 FS algorithms (some with submodules)
-│   ├── utilities.py       # Utilities for CV, logging, parallelism, etc.
-
+│   ├── configs/                # Configuration files
+│   │   └── config.py
+│   ├── fs_algorithms/          # 27 FS algorithms
+│   │   ├── AdaBoost.py
+│   │   ├── CAE/
+│   │   ├── DLFS/
+│   │   ├── ... (other methods)
+│   ├── utilities.py            # Utilities: CV, parallelism, logging, etc.
+```
 
 ## Installation
 
