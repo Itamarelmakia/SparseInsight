@@ -27,7 +27,6 @@ This platform supports dynamic benchmarking: researchers can upload new datasets
 
 ## Repository Structure
 
-\`\`\`
 ├── data                    # All datasets, grouped by repository
 │   ├── UCI/
 │   ├── Kaggle/
@@ -46,7 +45,7 @@ This platform supports dynamic benchmarking: researchers can upload new datasets
 │   │   └── config.py      # Configuration file (edit this!)
 │   ├── fs_algorithms/     # All 27 FS algorithms (some with submodules)
 │   ├── utilities.py       # Utilities for CV, logging, parallelism, etc.
-\`\`\`
+
 
 ## Installation
 
